@@ -1,15 +1,16 @@
 import { Component } from 'react'
 import { useSelector, useDispatch, connect } from 'react-redux'
 import classes from './Counter.module.css';
-import { counterActions } from '../store/index';
+import { counterActions } from '../store/counter';
+
 //connect allows you to connect class based components with redux
 const Counter = () => {
   // when we use "use" react-redux will automatically have access the subscription crom store
   // dispatch is used for actions
 
   const dispatch = useDispatch()
-  const counter = useSelector(state => state.counter)
-  const show = useSelector(state => state.showCounter)
+  const counter = useSelector(state => state.counter.counter)
+  const show = useSelector(state => state.counter.showCounter)
 
   //actions
   const incrementHandler = () => {
